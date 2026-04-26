@@ -26,3 +26,4 @@ This project is an Operating Systems academic project demonstrating a secure sys
 The database is initialized automatically with two users:
 - **Admin**: Username: `admin`, Password: `admin123` (Full permissions)
 - **User**: Username: `user`, Password: `user123` (Read-only permissions)
+Added authentication documentation 
