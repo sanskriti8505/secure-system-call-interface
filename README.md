@@ -32,3 +32,4 @@ Added system call wrapper notes
 Added logging updates 
 Updated dashboard notes 
 Final optimization notes 
+Improved login styling 
