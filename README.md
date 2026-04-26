@@ -27,3 +27,4 @@ The database is initialized automatically with two users:
 - **Admin**: Username: `admin`, Password: `admin123` (Full permissions)
 - **User**: Username: `user`, Password: `user123` (Read-only permissions)
 Added authentication documentation 
+Updated RBAC notes 
