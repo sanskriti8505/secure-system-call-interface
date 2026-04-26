@@ -29,3 +29,4 @@ The database is initialized automatically with two users:
 Added authentication documentation 
 Updated RBAC notes 
 Added system call wrapper notes 
+Added logging updates 
