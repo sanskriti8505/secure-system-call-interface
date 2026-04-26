@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<!-- Background Animation -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute inset-0 cyber-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-cyber-dark via-transparent to-cyber-dark opacity-90"></div>
+</div>
+
+<div class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] w-full">
+    <div class="glass-panel rounded-2xl p-10 w-full max-w-lg relative overflow-hidden group">
+        <!-- Glow effects inside panel -->
+        <div class="absolute -top-12 -left-12 w-40 h-40 bg-cyber-accent rounded-full mix-blend-screen filter blur-[60px] opacity-20"></div>
+        <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-blue-500 rounded-full mix-blend-screen filter blur-[60px] opacity-10"></div>
+        
+        <div class="text-center mb-10 relative z-10">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cyber-dark/80 border border-cyber-accent/40 mb-6 text-cyber-accent shadow-[0_0_25px_rgba(0,255,204,0.2)]">
+                <i class="fas fa-shield-alt text-3xl"></i>
+            </div>
+            <h2 class="text-4xl font-extrabold text-white tracking-widest drop-shadow-lg">SECURE OS</h2>
+            <p class="text-xs text-cyber-accent mt-4 font-mono uppercase tracking-[0.25em]"><i class="fas fa-lock mr-2"></i>Authorized Users Only</p>
+        </div>
+
+        <form method="POST" action="" class="space-y-8 relative z-10">
+            <div class="space-y-3">
+                <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest text-center" for="username">Operator ID</label>
+                <div class="relative group/input">
+                    <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none transition-colors group-focus-within/input:text-cyber-accent text-gray-500">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input class="w-full bg-cyber-dark/70 border border-cyber-border rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-all duration-300 text-center tracking-wider shadow-inner" id="username" name="username" type="text" placeholder="Enter identification" required>
+                </div>
+            </div>
+            
+            <div class="space-y-3">
+                <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest text-center" for="password">Passkey</label>
+                <div class="relative group/input">
+                    <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none transition-colors group-focus-within/input:text-cyber-accent text-gray-500">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input class="w-full bg-cyber-dark/70 border border-cyber-border rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-all duration-300 text-center tracking-widest shadow-inner" id="password" name="password" type="password" placeholder="••••••••" required>
+                </div>
+            </div>
+            
+            <div class="pt-2">
+                <button class="w-full bg-transparent border-2 border-cyber-accent text-cyber-accent hover:bg-cyber-accent hover:text-cyber-dark hover:shadow-[0_0_20px_rgba(0,255,204,0.3)] font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 uppercase tracking-widest group/btn" type="submit">
+                    <span>Initiate Uplink</span>
+                    <i class="fas fa-arrow-right text-sm transform group-hover/btn:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

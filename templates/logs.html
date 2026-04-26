@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Audit Logs{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h2 class="text-3xl font-bold text-white tracking-wider flex items-center">
+        <i class="fas fa-list-alt text-cyber-accent mr-3"></i> SYSTEM AUDIT LOGS
+    </h2>
+    <p class="text-gray-400 mt-1">Review all system call activities and outcomes</p>
+</div>
+
+<div class="bg-cyber-panel border border-cyber-border rounded-xl shadow-lg overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-cyber-dark border-b border-cyber-border">
+                    <th class="p-4 text-xs font-medium text-gray-400 uppercase tracking-wider">ID</th>
+                    <th class="p-4 text-xs font-medium text-gray-400 uppercase tracking-wider">Timestamp</th>
+                    <th class="p-4 text-xs font-medium text-gray-400 uppercase tracking-wider">User</th>
+                    <th class="p-4 text-xs font-medium text-gray-400 uppercase tracking-wider">Action</th>
+                    <th class="p-4 text-xs font-medium text-gray-400 uppercase tracking-wider">Result</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-cyber-border">
+                {% for log in logs %}
+                <tr class="hover:bg-cyber-dark/50 transition-colors">
+                    <td class="p-4 text-gray-500 font-mono text-sm">#{{ log.id }}</td>
+                    <td class="p-4 text-gray-300 text-sm whitespace-nowrap">{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td class="p-4">
+                        <span class="px-2 py-1 bg-cyber-dark border border-cyber-border rounded text-xs font-medium text-white flex items-center inline-flex">
+                            <i class="fas fa-user text-gray-500 mr-2"></i> {{ log.username }}
+                        </span>
+                    </td>
+                    <td class="p-4 text-gray-300 font-mono text-sm">{{ log.action }}</td>
+                    <td class="p-4 text-sm">
+                        {% if 'Success' in log.result or 'success' in log.result %}
+                            <span class="text-green-400 flex items-start"><i class="fas fa-check-circle mt-1 mr-2"></i> {{ log.result }}</span>
+                        {% elif 'denied' in log.result.lower() or 'Denied' in log.result %}
+                            <span class="text-red-400 flex items-start"><i class="fas fa-ban mt-1 mr-2"></i> {{ log.result }}</span>
+                        {% else %}
+                            <span class="text-yellow-400 flex items-start"><i class="fas fa-exclamation-circle mt-1 mr-2"></i> {{ log.result }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="p-8 text-center text-gray-500">
+                        <i class="fas fa-inbox text-3xl mb-3"></i>
+                        <p>No audit logs found.</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0f; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #2a2a3f; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00ffcc; 
+}
+
+/* Form transition utilities */
+.action-form {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.action-form.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.action-form.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pre format for console */
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Animated Grid Background */
+.cyber-grid {
+    background-image: 
+        linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+    animation: moveGrid 20s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes moveGrid {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(40px); }
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: rgba(15, 15, 25, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 255, 204, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 204, 0.08), inset 0 0 20px rgba(0, 255, 204, 0.02);
+}
