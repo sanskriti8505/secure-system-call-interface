@@ -28,3 +28,4 @@ The database is initialized automatically with two users:
 - **User**: Username: `user`, Password: `user123` (Read-only permissions)
 Added authentication documentation 
 Updated RBAC notes 
+Added system call wrapper notes 
